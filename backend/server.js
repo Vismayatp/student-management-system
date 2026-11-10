@@ -6,10 +6,13 @@ const app = express();
 
 //add this after connecting the mongoDB
 const connectDB = require('./config/db');
+//add this after creating the student routes
+const studentRoutes = require('./routes/studentRoutes');
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use('/api/students', studentRoutes);//add this after creating the student routes
 
 // Test route
 app.get('/', (req, res) => {
