@@ -3,8 +3,11 @@ const router = express.Router();
 
 const Student = require('../models/Student');
 
+const protect = require('../middleware/authMiddleware');
+
 // 1. Add a new student
-router.post('/', async (req, res) => {
+router.post('/', protect, async (req, res) => {
+
     try {
         const student = await Student.create(req.body);
 
@@ -20,7 +23,7 @@ router.post('/', async (req, res) => {
 });
 
 // 2. Get all students
-router.get('/', async (req, res) => {
+router.get('/', protect, async (req, res) => {
     try {
         const students = await Student.find();
 
@@ -33,7 +36,7 @@ router.get('/', async (req, res) => {
 });
 
 // 3. Update a student
-router.put('/:id', async (req, res) => {
+router.put('/:id', protect, async (req, res) => {
     try {
         const student = await Student.findByIdAndUpdate(
             req.params.id,
@@ -59,7 +62,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // 4. Delete a student
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', protect, async (req, res) => {
     try {
         const student = await Student.findByIdAndDelete(req.params.id);
 
