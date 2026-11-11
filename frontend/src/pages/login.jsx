@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Login({ onSwitch }) {
+function Login({ onSwitch, onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -29,6 +29,7 @@ function Login({ onSwitch }) {
       }
 
       localStorage.setItem('token', data.token);
+      onLogin();
       setMessage('Login successful!');
     } catch (error) {
       setMessage('Unable to connect to server.');
