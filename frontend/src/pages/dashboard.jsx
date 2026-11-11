@@ -132,7 +132,7 @@ function Dashboard({ onLogout }) {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <p>Welcome to your student management system.</p>
+            <h4>Welcome to your student management system.</h4>
           </div>
         </header>
 

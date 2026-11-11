@@ -43,7 +43,7 @@ function StudentForm({ onSubmit, editingStudent, onCancel }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="student-form">
       <h2>{editingStudent ? 'Edit Student' : 'Add New Student'}</h2>
 
       <input
@@ -87,15 +87,15 @@ function StudentForm({ onSubmit, editingStudent, onCancel }) {
         required
       />
 
+      <div className="form-buttons">
+      <button type="button" onClick={onCancel}>
+        Cancel
+      </button>
+
       <button type="submit">
         {editingStudent ? 'Update Student' : 'Add Student'}
       </button>
-
-      {editingStudent && (
-        <button type="button" onClick={onCancel}>
-          Cancel
-        </button>
-      )}
+    </div>
     </form>
   );
 }
