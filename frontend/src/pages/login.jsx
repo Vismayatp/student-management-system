@@ -37,39 +37,42 @@ function Login({ onSwitch, onLogin }) {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h1>Student Management System</h1>
-        <p>Welcome back! Please login.</p>
+  <div className="login-container">
+    <div className="login-card">
+      <h1>StudentHub</h1>
+      <p className="login-subtitle">Welcome back! Please login to your account.</p>
 
-        <form onSubmit={handleLogin}>
-          <label>Email Address</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+      <form onSubmit={handleLogin}>
+        <label>Email Address</label>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
-          <label>Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        <label>Password</label>
+        <input
+          type="password"
+          placeholder="Enter your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
-          <button type="submit">Login</button>
-        </form>
+        <button type="submit">Login</button>
+      </form>
 
-        {message && <p>{message}</p>}
-        <p>
-            Don't have an account?{' '}
-            <button type="button" onClick={onSwitch}>Register</button>
-        </p>
-      </div>
+      {message && <p className="login-message">{message}</p>}
+
+      <p className="register-link">
+        Don't have an account?{' '}
+        <button type="button" onClick={onSwitch}>Register</button>
+      </p>
     </div>
-  );
+  </div>
+);
 }
 
 export default Login;
